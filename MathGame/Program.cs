@@ -24,7 +24,23 @@ void Play()
     {
         AdditionTest();
     }
-    if (choice == "f")
+    else if (choice == "b")
+    {
+        SubtractionTest();
+    }
+    else if (choice == "c")
+    {
+        MultiplicationTest();
+    }
+    else if (choice == "d")
+    {
+        DivisionTest();
+    }
+    else if (choice == "e")
+    {
+
+    }
+    else if (choice == "f")
     {
         playing = false;
     }
@@ -43,6 +59,39 @@ void AdditionTest()
     int answer = a + b;
     Console.WriteLine("");
     Console.Write($"What is the result of the following operation: {a} + {b}? ");
+    int userAnswer = Convert.ToInt32(Console.ReadLine());
+    DetermineResult(answer, userAnswer);
+}
+
+void SubtractionTest()
+{
+    int a = GetRandom();
+    int b = GetRandom();
+    int answer = a - b;
+    Console.WriteLine("");
+    Console.Write($"What is the result of the following operation: {a} - {b}? ");
+    int userAnswer = Convert.ToInt32(Console.ReadLine());
+    DetermineResult(answer, userAnswer);
+}
+
+void DivisionTest()
+{
+    int a = GetRandom();
+    int b = GetRandom();
+    int answer = a / b;
+    Console.WriteLine("");
+    Console.Write($"What is the result of the following operation: {a} / {b} (rounded down)? ");
+    int userAnswer = Convert.ToInt32(Console.ReadLine());
+    DetermineResult(answer, userAnswer);
+}
+
+void MultiplicationTest()
+{
+    int a = GetRandom();
+    int b = GetRandom();
+    int answer = a * b;
+    Console.WriteLine("");
+    Console.Write($"What is the result of the following operation: {a} * {b}? ");
     int userAnswer = Convert.ToInt32(Console.ReadLine());
     DetermineResult(answer, userAnswer);
 }

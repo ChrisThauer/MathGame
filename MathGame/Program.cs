@@ -38,7 +38,7 @@ void Play()
     }
     else if (choice == "e")
     {
-
+        ViewResults();
     }
     else if (choice == "f")
     {
@@ -118,4 +118,28 @@ void DetermineResult(int answer, int userAnswer)
         Console.WriteLine($"Sorry, you answered incorrectly. The correct answer was {answer}");
         results.Add("Incorrect");
     }
+}
+
+void ViewResults()
+{
+    int correct = 0;
+    int total = 0;
+    results.ForEach(result =>
+    {
+        if (result == "Correct")
+        {
+            correct++;
+        }
+        total++;
+    });
+
+    Console.WriteLine("");
+    Console.WriteLine("Results");
+    Console.WriteLine("===============");
+    for (int i = 0; i < results.Count; i++)
+    {
+        Console.WriteLine($"{i + 1}. {results[i]}");
+    }
+    Console.WriteLine($"Total: {correct}/{total}");
+    Console.WriteLine("");
 }

@@ -1,9 +1,11 @@
 ﻿List<string> results = new List<string>();
 bool playing = true;
 string choice;
+int difficulty = 1;
 
 Console.WriteLine("Welcome to the Math Game");
 Console.WriteLine("===========================");
+SelectDifficulty();
 
 while (playing)
 {
@@ -11,12 +13,13 @@ while (playing)
 }
 void Play()
 {
-    Console.WriteLine("A) Addition");
-    Console.WriteLine("B) Subtraction");
-    Console.WriteLine("C) Multiplication");
-    Console.WriteLine("D) Division");
-    Console.WriteLine("E) View Results");
-    Console.WriteLine("F) Exit");
+    Console.WriteLine("");
+    Console.WriteLine("A. Addition");
+    Console.WriteLine("B. Subtraction");
+    Console.WriteLine("C. Multiplication");
+    Console.WriteLine("D. Division");
+    Console.WriteLine("E. View Results");
+    Console.WriteLine("F. Exit");
     Console.Write("Please select an operation: ");
     choice = Console.ReadLine().ToLower();
 
@@ -142,4 +145,35 @@ void ViewResults()
     }
     Console.WriteLine($"Total: {correct}/{total}");
     Console.WriteLine("");
+}
+
+void SelectDifficulty()
+{
+    Console.WriteLine("");
+    Console.WriteLine("1. Easy");
+    Console.WriteLine("2. Moderate");
+    Console.WriteLine("3. Advanced");
+    Console.Write("Please select your difficulty: ");
+    int userChoice;
+    while (true)
+    {
+        if (int.TryParse(Console.ReadLine(), out userChoice))
+        {
+            if (userChoice == 1 || userChoice == 2 || userChoice == 3)
+            {
+                difficulty = userChoice;
+                return;
+            }
+            else
+            {
+                Console.WriteLine("");
+                Console.Write("Invalid selection. Please select your difficulty: ");
+            }
+        }
+        else
+        {
+            Console.WriteLine("");
+            Console.Write("Invalid selection. Please select your difficulty: ");
+        }
+    }
 }

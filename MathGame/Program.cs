@@ -18,8 +18,9 @@ void Play()
     Console.WriteLine("B. Subtraction");
     Console.WriteLine("C. Multiplication");
     Console.WriteLine("D. Division");
-    Console.WriteLine("E. View Results");
-    Console.WriteLine("F. Exit");
+    Console.WriteLine("E. Change Difficulty");
+    Console.WriteLine("F. View Results");
+    Console.WriteLine("G. Exit");
     Console.Write("Please select an operation: ");
     choice = Console.ReadLine().ToLower();
 
@@ -41,9 +42,13 @@ void Play()
     }
     else if (choice == "e")
     {
-        ViewResults();
+        SelectDifficulty();
     }
     else if (choice == "f")
+    {
+        ViewResults();
+    }
+    else if (choice == "g")
     {
         playing = false;
     }
@@ -102,8 +107,21 @@ void MultiplicationTest()
 // Returns a random number between 1 and 100
 int GetRandom()
 {
+    int maxNum;
     Random random = new Random();
-    return random.Next(1, 101);
+    if (difficulty == 1 )
+    {
+        maxNum = 11;
+    }
+    else if (difficulty == 2 )
+    {
+        maxNum = 101;
+    }
+    else
+    {
+        maxNum = 1001;
+    }
+    return random.Next(1, maxNum);
 }
 
 // Determines if result is correct and adds it to the results list
